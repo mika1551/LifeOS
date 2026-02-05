@@ -5,12 +5,9 @@ LifeOS — персональное приложение для планиров
 
 Версия MVP сфокусирована на базовых сценариях планирования:
 
-* задачи,
-* расписание,
-* цели,
-* привычки.
-
-Функциональность, связанная с трекингом настроения и аналитикой эмоционального состояния, намеренно исключена для упрощения домена.
+* задачи
+* расписание
+* цели
 
 ---
 
@@ -87,33 +84,6 @@ LifeOS — персональное приложение для планиров
 
 ---
 
-### Habit
-
-Повторяющееся действие.
-
-Поля:
-
-* Id : Guid
-* UserId : Guid
-* Title : string
-* Frequency : HabitFrequency (Daily, Weekly)
-* CreatedAt : DateTime
-
----
-
-### HabitCheck
-
-Факт выполнения привычки.
-
-Поля:
-
-* Id : Guid
-* HabitId : Guid
-* Date : DateOnly
-* IsCompleted : bool
-
----
-
 ### ScheduleItem
 
 Элемент расписания.
@@ -134,8 +104,6 @@ LifeOS — персональное приложение для планиров
 * User → TaskItem (one-to-many)
 * User → Goal (one-to-many)
 * Goal → SubGoals (one-to-many)
-* User → Habit (one-to-many)
-* Habit → HabitCheck (one-to-many)
 * User → ScheduleItem (one-to-many)
 
 ---
@@ -166,14 +134,6 @@ GET /api/goals
 POST /api/goals
 GET /api/goals/{id}
 PUT /api/goals/{id}
-
----
-
-### Habits
-
-GET /api/habits
-POST /api/habits
-POST /api/habits/{id}/check
 
 ---
 
@@ -226,7 +186,6 @@ POST /api/schedule
 * список задач с фильтрацией,
 * модальные окна создания и редактирования задач,
 * экран целей с отображением прогресса,
-* экран привычек с дневным и недельным представлением,
 * экран расписания (day view).
 
 Для каждого экрана предусмотрены состояния:
